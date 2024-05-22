@@ -8,7 +8,20 @@
 % Replace `letterpaper' with `a4paper' for UK/EU standard size
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
+
+\RequirePackage{multirow}  % 列合并需要的宏包
+\RequirePackage{array}	   % 对齐相关的宏包
+\RequirePackage{booktabs}  % 三线表宏包
+\RequirePackage{tabularx}  % 自动平均分配列宽的宏包
+\RequirePackage{longtable} % 跨页表格需要的宏包
+\RequirePackage{tabu}      % 大表格需要的宏包
+\RequirePackage{threeparttable} % 三段式表格，主要用于表格内引用
+\usepackage{subcaption}
+\usepackage{caption}
+
 % Useful packages
+\usepackage{pgf-pie}
+\usepackage{geometry}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, linkcolor=blue,backref=true]{hyperref}
@@ -30,29 +43,30 @@ Your abstract.
 \newpage
 
 \section{INTRODUCTION}
-
+\paragraph{}
 Considering GenAI's huge effect in the future, it is very important to discuss how AI can help students appropriately; and those CS students who have been helped by GenAI can take part in GenAI's development in return, so it is also an interesting topic. In previous researches, we find that some studies focus on the practicality of AI-assisted programming and examine professional programmers' perspectives on it, like ``A Large-Scale Survey on the Usability of AI Programming Assistants: Successes and Challenges."\cite{liang-2023-LargeScaleSurveyUsability} and ``Expectation vs. Experience: Evaluating the Usability of Code Generation Tools Powered by Large Language Models"\cite{vaithilingam-2022-ExpectationVsExperience}; some studies focus on the general impact of generative AI on education, like ```Students' use of large language models in engineering education: A case study on technology acceptance, perceptions, efficacy, and detection chances"\cite{bernabei-2023-StudentsUseLarge} and ```With Great Power Comes Great Responsibility!': Student and Instructor Perspectives on the influence of LLMs on Undergraduate Engineering Education"\cite{joshi-2023-GreatPowerComes}; others pay attention to exploring AI-assisted computer education(``Beyond Traditional Teaching: Large Language Models as Simulated Teaching Assistants in Computer Science"\cite{liu-2024-TraditionalTeachingLarge}), exploring the possibility of AI teaching assistants from an educator's perspective(``Bob or Bot: Exploring ChatGPT's Answers to University Computer Science Assessment"\cite{richards-2024-BobBotExploring} and ``ChatGPT in the Classroom: An Analysis of Its Strengths and Weaknesses for Solving Undergraduate Computer Science Questions"\cite{joshi-2024-ChatGPTClassroomAnalysis}) or testing AI in answering CS-related questions, investigating the extent of students' trust in AI(``Trust in Generative AI among Students: An exploratory study"\cite{amoozadeh-2024-TrustGenerativeAI}). In summary, the previous studies pay much attention to GenAI's effect on education generally,however,we do not find any study taking research on CS students specifically—a hard-to-begin major's students.As a group whose major is related to AI, it is hard to say whether these students' trust level on GenAI is same with other students'. Also, considering different learning content, it remains unknown whether the general study method(with GenAI) suits the CS student. So in this article, we'll discuss how does students and instructors trust GenAI and how to guide CS students to use GenAI to assist their personalized learning, in the hope of giving CS students some advise through our study.
 
 
 \section{METHODOLOGY}
-
-The methodology for this study is designed to evaluate the impact of generative AI tools on personalized learning in computer science education. The approach used to collect and analyze data encompasses both quantitative and qualitative methods to ensure a comprehensive understanding of the subject.
+\paragraph{}
+The methodology for this study is designed to evaluate the impact of generative AI (GenAI) tools on personalized learning within computer science (CS) education. To ensure a comprehensive understanding, the data collection and analysis approach integrates both quantitative and qualitative methods.
 
 \subsection{Survey Design}
+\paragraph{}
+A structured questionnaire was developed to gather detailed insights from computer science students regarding their use and perceptions of generative AI tools. The questionnaire includes both closed and open-ended questions, addressing various aspects of GenAI usage in CS educational settings.
 
-A structured questionnaire was developed to capture detailed insights from computer science students on their use and perception of generative AI tools. The questionnaire consists of closed and open-ended questions addressing several aspects of GenAI usage in CS educational settings.
-
-The survey questionnaire was divided into three parts.
-
+\paragraph{}
+The survey questionnaire is divided into five parts:
 \begin{itemize}
-    \item The first part consisted of several questions including participants' understanding of GenAI and the use frequency of GenAI in their learning. These questions classify participants into two categories, the namely users and non-users of GenAI.
-    \item The second part delves into  how participants use GenAI, like which aspects of their studies participants use generative AI, their level of acceptance towards AI-assisted learning, and whether AI has improved their efficiency.
-    \item The third part evaluate the participants' trust level of GenAI. Here, we used three more specific questions corresponding to the three levels of questions which will be answered by GenAI.
-    \item The fourth part regrads participants' concern about GenAI, such as data privacy and security issues or negative impact on their skill development.
-    \item The final part is an open-ended question, asking participants' other opinions on using GenAI in CS learning.
+    \item \textbf{Understanding and Usage} This section includes questions about participants' understanding of GenAI and the frequency of its use in their learning. These questions categorize participants into users and non-users of GenAI.
+    \item \textbf{Application and Acceptance} This section explores how participants use GenAI, including the specific aspects of their studies where they employ generative AI, their level of acceptance towards AI-assisted learning, and whether AI has enhanced their efficiency.
+    \item \textbf{Trust} This section assesses the participants' trust in GenAI, using three targeted questions to address various levels of trust.
+    \item \textbf{Concerns} This section addresses participants' concerns about GenAI, such as data privacy, security issues, and potential negative impacts on skill development.
+    \item \textbf{Additional Opinions} This final part includes an open-ended question for participants to share any additional opinions on the use of GenAI in CS learning.
 \end{itemize}
 
-By divide the survey questionnaire into these part, we except to get a comprehensive view of participants' opinions on using GenAI on CS learning. Most of the questions in the questionnaire are multiple-choice questions. For questions related to frequency or degree, four options were provided for measurement. For some questions asking for reasons, aspects, multiple choices are provided, along with an "Other" option for participants to write their own answer in case we didn't consider all possible options. These questions setting enable 
+\paragraph{}
+By structuring the survey in this manner, we aim to acquire a comprehensive understanding of participants' opinions on using GenAI in CS learning. Most of the questions are multiple-choice, with four options provided for frequency or degree measurements. For questions regarding reasons and aspects, multiple choices are available, along with an ``Other" option for additional inputs. This design facilitates quantitative analysis of the responses.
 
 
 
@@ -68,29 +82,129 @@ By divide the survey questionnaire into these part, we except to get a comprehen
 % \end{itemize}
 
 \section{RESULTS}
-The survey questionnaire was distributed to computer science students at various levels of study, from undergraduate to graduate programs. A total of 101 valid responses were collected. The results are presented and analyzed below.
-\subsection{Students' knowledge about AI}
-When asked about their level of understanding of generative AI such as ChatGPT, Claude, and Gemini, 42.57\% of respondents indicated they had a general understanding, while 47.52\% said they were familiar with these tools. Only 9.9\% reported being unfamiliar with generative AI.
-\subsection{Students' usage of AI}
-The majority of respondents (65.35\%) reported using generative AI frequently in their studies, while 23.76\% used it occasionally. Only 4.95\% reported never using generative AI. The main purposes for using these tools included assisting with programming (68.75\%), writing papers (87.5\%), and solving problems encountered in learning (80.21\%).
-\subsection{The role AI plays among students}
-When asked about the helpfulness of generative AI in their learning, 45.54\% found it very helpful, and 37.62\% found it somewhat helpful. The main benefits reported were improved learning efficiency (82.18\%), expanded knowledge (49.5\%), enhanced programming skills (49.5\%) and others.
-\subsubsection{Specific performance of AI in coding tasks}
-Regarding the use of AI programming assistants like Copilot, 25.74\% of respondents reported using them frequently, while 26.73\% used them occasionally. When asked about the impact of these tools on their programming efficiency, 30.19\% reported a significant increase, and 45.28\% reported a moderate increase.
+\paragraph{}
+The survey questionnaire was distributed to computer science students at various levels of study, from undergraduate to graduate programs. A total of 101 valid responses were collected. Table \ref{table:response_distribution} lists the Distribution of Survey Responses by Academic Level.
 
-In terms of the impact on code correctness, 64.15\% of respondents believed that AI helped improve the correctness of their code, while 26.42\% reported no noticeable impact. As for the impact on debugging efficiency, 43.56\% reported that AI helped improve their debugging efficiency, while 48.51\% reported no noticeable impact.
+\begin{table}[ht]
+\centering
+\captionsetup{labelfont={bf},textfont={bf}}
+\caption{\label{table:response_distribution}\textbf{Distribution of Survey Responses by Academic Level}}
+\begin{tabular}{>{\raggedright}p{4cm}rr}
+\toprule
+Student levels & Subtotal & Proportion \\
+\midrule
+Undergraduate Year 1 & 51 & 50.50\% \\
+Undergraduate Year 2 & 18 & 17.82\% \\
+Undergraduate Year 3 & 11 & 10.89\% \\
+Undergraduate Year 4 & 5 & 4.95\% \\
+Graduate & 16 & 15.84\% \\
+\midrule
+Total Valid Responses & \textbf{101} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Students' knowledge about AI}
+\paragraph{}
+When asked about their level of understanding of generative AI such as ChatGPT, Claude, and Gemini, 42.57\% of respondents indicated they had a general understanding, while 47.52\% said they were familiar with these tools(Figure \ref{fig:understanding}). Only 9.9\% reported being unfamiliar with generative AI. This suggests that the majority of computer science students surveyed have at least a basic understanding of generative AI technologies, which may contribute to their willingness to adopt these tools in their learning process.
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+        \pie[
+            text=legend,
+            radius=1.5,
+            color={blue!40, green!40, red!40}
+        ]{
+            42.57/General understanding,
+            47.52/Familiar,
+            9.9/Unfamiliar
+        }
+    \end{tikzpicture}
+    \caption{Respondents' Level of Understanding of Generative AI}
+    \label{fig:understanding}
+\end{figure}
+\subsection{Students' usage of AI}
+\paragraph{}
+The majority of respondents (65.35\%) reported using generative AI frequently in their studies, while 23.76\% used it occasionally. Only 4.95\% reported never using generative AI. The main purposes for using these tools included assisting with programming (68.75\%), writing papers (87.5\%), and solving problems encountered in learning (80.21\%). These findings indicate that generative AI has become an integral part of many computer science students' learning strategies, with a wide range of applications across different aspects of their studies.
+\subsection{The role AI plays among students}
+\paragraph{}
+When asked about the helpfulness of generative AI in their learning, 45.54\% found it very helpful, and 37.62\% found it somewhat helpful. The main benefits reported were improved learning efficiency (82.18\%), expanded knowledge (49.5\%), enhanced programming skills (49.5\%), and others such as helping with creative inspiration (50.5\%) and providing learning resources (47.52\%). These results suggest that generative AI is playing a significant role in supporting and enhancing computer science students' learning experiences, with a majority of respondents recognizing its positive impact on various aspects of their academic development.
+\subsubsection{Specific performance of AI in coding tasks}
+\paragraph{}
+Regarding the use of AI programming assistants like Copilot, 25.74\% of respondents reported using them frequently, while 26.73\% used them occasionally. When asked about the impact of these tools on their programming efficiency, 30.19\% reported a significant increase, and 45.28\% reported a moderate increase. This indicates that AI programming assistants are gaining popularity among computer science students and are perceived as valuable tools for boosting coding productivity.
+
+\paragraph{}
+In terms of the impact on code correctness, 64.15\% of respondents believed that AI helped improve the correctness of their code, while 26.42\% reported no noticeable impact. As for the impact on debugging efficiency, 43.56\% reported that AI helped improve their debugging efficiency, while 48.51\% reported no noticeable impact. These findings suggest that AI programming assistants have the potential to enhance code quality and streamline the debugging process for a significant portion of students, although the extent of their impact may vary depending on individual experiences and the specific tools used.
 
 \subsection{Students’ level of trust in AI}
 \subsubsection{The scale of their trust}
-Regarding the correctness of AI's explanations of concepts, 57.42\% of respondents believed in AI's abilities, while 34.65\% were neutral. For AI's reasoning abilities, 49.5\% believed in AI, and 36.63\% were neutral. As for AI's creative abilities, 48.51\% believed in AI, while 35.64\% were neutral.
+\paragraph{}
+Regarding the correctness of AI's explanations of concepts(Figure \ref{fig:ai_trust}), 57.42\% of respondents believed in AI's abilities (22.77\% strongly believed, 34.65\% believed), while 34.65\% were neutral. For AI's reasoning abilities, 49.5\% believed in AI (14.85\% strongly believed, 34.65\% believed), and 36.63\% were neutral. As for AI's creative abilities, 48.51\% believed in AI (13.86\% strongly believed, 34.65\% believed), while 35.64\% were neutral. These results indicate that a substantial proportion of computer science students have a relatively high level of trust in generative AI's capabilities across different domains, although there is still a significant percentage who remain neutral or skeptical.
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.32\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \pie[
+                text=inside,
+                radius=1.5, % 半径为1.5厘米
+                color={blue!40, green!40, red!40, orange!40}
+            ]{
+                22.77/,
+                34.65/,
+                34.65/,
+                7.93/
+            }
+        \end{tikzpicture}
+        \caption{Correctness of Explanations}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \pie[
+                text=inside,
+                radius=1.5, % 半径为1.5厘米
+                color={blue!40, green!40, red!40, orange!40}
+            ]{
+                14.85/,
+                34.65/,
+                36.63/,
+                13.87/
+            }
+        \end{tikzpicture}
+        \caption{Reasoning Abilities}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \pie[
+                text=legend,
+                radius=1.5, % 半径为1.5厘米
+                color={blue!40, green!40, red!40, orange!40}
+            ]{
+                13.86/Strongly believe,
+                34.65/Believe,
+                35.64/Neutral,
+                15.85/Disbelieve
+            }
+        \end{tikzpicture}
+        \caption{Creative Abilities}
+    \end{subfigure}
+    \caption{Respondents' Trust in Generative AI's Capabilities}
+    \label{fig:ai_trust}
+\end{figure}
 \subsubsection{Why they hold that belief}
-The reasons for students' trust or distrust in AI were not directly addressed in the survey. However, the frequent use of AI tools and the reported benefits suggest that positive experiences with AI contribute to students' trust.
+\paragraph{}
+The reasons for students' trust or distrust in AI were not directly addressed in the survey. However, the frequent use of AI tools and the reported benefits suggest that positive experiences with AI contribute to students' trust. Additionally, the respondents' level of familiarity with generative AI technologies may also influence their trust, as those with a better understanding of AI's capabilities and limitations might have more informed opinions on its reliability.
 \subsection{Other important information}
 \paragraph{}
-When asked about concerns regarding the use of generative AI, 37.62\% of respondents were worried about data privacy and security issues, while 9.9\% were not concerned. Additionally, 36.63\% of respondents were unsure if generative AI would negatively impact their skill development or employment prospects, while 50.5\% believed it would not have a negative impact.
+When asked about concerns regarding the use of generative AI, 37.62\% of respondents were worried about data privacy and security issues, while 52.48\% were not particularly concerned, and 9.9\% were not concerned at all. This suggests that while data privacy and security are important considerations for a significant portion of students, the majority do not view them as major barriers to using generative AI tools in their learning.
 
 \paragraph{}
-These results provide valuable insights into computer science students' perceptions and use of generative AI tools in their learning. The high adoption rate and reported benefits suggest that AI is playing an increasingly important role in personalized learning for CS students. However, concerns about data privacy and the potential impact on skill development highlight the need for further research and guidance on the responsible use of AI in education.
+Regarding the potential negative impact of generative AI on skill development and employment prospects, 50.5\% of respondents believed it would not have a negative impact, while 12.87\% believed it would, and 36.63\% were unsure. The open-ended responses provided some insights into the reasons behind these beliefs. Some students expressed concerns that AI might replace certain job roles or lower the entry barrier, leading to increased competition. Others noted that AI could help automate low-level tasks, allowing students to focus on higher-level skills and adapt to the changing landscape of the computer science field.
+
+\paragraph{}
+These results provide a nuanced picture of computer science students' perceptions and experiences with generative AI in their learning. While the majority of respondents recognize the benefits and actively use these tools, there are still concerns and uncertainties that need to be addressed through further research, education, and guidance on the responsible and effective integration of AI in computer science education.
 
 \newpage
 \appendix
